@@ -9,6 +9,18 @@ export default function AddCreator() {
     const url = document.getElementById("url").value;
     const imageURL = document.getElementById("imageURL").value;
 
+    if(!name) return alert("A name is required!")
+
+    // check if supabase already has an element with the name "name"
+
+    const { count, error} = await supabase
+      .from('creators')
+      .select()
+      .eq('name', name);
+
+    if(error) return alert("There was an error: " + error);
+
+    if(count) return alert("The name already exists");
     supabase
       .from("creators")
       .insert([{ name: name, description: description, url: url, imageURL: imageURL }])
@@ -25,7 +37,8 @@ export default function AddCreator() {
 
   return (
     <>
-      <form style={{ marginTop: "30vh", height: "100vh" }}>
+      <form style={{ marginTop: "10vh", height: "100vh", padding: "0 10vw" }}>
+        <h1>Add a new Creator</h1>
         <div>
           <label htmlFor="name">Name: </label>
           <input id="name" type="text" required />

@@ -6,8 +6,8 @@ import React from "react";
 export default function Creator({ data }) {
   console.log("creator data: ", data);
   return (
-    <article className="creator" style={{ padding: "20px", width: "30vh", height: "200px", border: "1px solid black", borderRadius: "10px"}}>
-      <img src={data.imageURL} />
+    <article className="creator" style={{ padding: "20px", width: "30vh", border: "1px solid black", borderRadius: "10px"}}>
+      <img src={data.imageURL} style={{paddingBottom: "10px"}} />
       <header>
         <a href={"/view/" + data.name}>{data.name}</a>
       </header>

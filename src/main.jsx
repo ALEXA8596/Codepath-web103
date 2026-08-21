@@ -25,9 +25,6 @@ createRoot(document.getElementById("root")).render(
         <a href="/add">
           Add
         </a>
-        <a href="/show-all">
-          Show All
-        </a>
       </nav>
       <App />
     </BrowserRouter>

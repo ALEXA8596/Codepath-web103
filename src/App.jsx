@@ -5,7 +5,6 @@ import { useRoutes } from "react-router";
 import ViewCreator from "./pages/ViewCreator";
 import AddCreator from "./pages/AddCreator";
 import EditCreator from "./pages/EditCreator";
-import ShowAllCreators from "./pages/ShowAllCreators";
 
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
@@ -37,22 +36,35 @@ function Home() {
   }, []);
   return (
     <>
-      <section id="center">
+      <section className="center">
         <h1>Creatorverse</h1>
         <h3>A database of your favorite content creators</h3>
       </section>
 
-      <hr/>
-      <section id="center" style={{ display: "grid", gap: "20px", gridTemplateColumns: "200px", marginTop: "20px", gridTemplateRows: "2" }}>
+      <hr />
+      <section className="center">
         {loading ? (
           <p>Loading</p>
         ) : creators.length > 0 ? (
-          creators.map((creator) => {
-            return <Creator key={creator.name} data={creator} />;
-          })
+          <div
+            style={{
+              display: "grid",
+              gap: "20px",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              marginTop: "20px",
+              gridTemplateRows: "2",
+            }}
+          >
+            {creators.map((creator) => {
+              return <Creator key={creator.name} data={creator} />;
+            })}
+          </div>
         ) : (
           <p>No creators found</p>
         )}
+        <a href="/add">
+          <button>Add a Creator</button>
+        </a>
       </section>
     </>
   );
@@ -63,10 +75,6 @@ function App() {
     {
       path: "/",
       element: Home(),
-    },
-    {
-      path: "/show-all",
-      element: <ShowAllCreators />,
     },
     {
       path: "/add",

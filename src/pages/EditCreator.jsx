@@ -54,13 +54,23 @@ export default function EditCreator() {
     }
   }
 
+  async function submitDelete(e) {
+    e.preventDefault()
+    supabase.from("creators").delete().eq("name", creator.name).then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      alert(err)
+    })
+    window.location.href = "/"
+  }
+
   return (
     <>
       {loading ? (
         <p>Loading...</p>
       ) : creator ? (
-        <div>
-        <form style={{ marginTop: "30vh", height: "100vh" }}>
+        <div style={{ marginTop: "10vh", height: "100vh", padding: "0 5vw" }}>
+        <form >
           <h1>Edit {creator.name}</h1>
           <div>
             <label htmlFor="name">Name: </label>
@@ -88,6 +98,10 @@ export default function EditCreator() {
             Submit
           </button>
         </form>
+
+        <button type="submit" onClick={submitDelete}>
+          Delete
+        </button>
         </div>
       ) : (
         <p>No creator found.</p>
