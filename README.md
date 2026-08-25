@@ -4,7 +4,7 @@ Submitted by: **Alex Kim**
 
 About this web app: **Creatorverse is a basic React app that showcases various creators**
 
-Time spent: **👉🏿 10** hours
+Time spent: **10** hours
 
 ## Required Features
 
@@ -12,7 +12,7 @@ The following **required** functionality is completed:
 
 <!-- 👉🏿👉🏿👉🏿 Make sure to check off completed functionality below -->
 - [x] **A logical component structure in React is used to create the frontend of the app**
-- [] **At least five content creators are displayed on the homepage of the app**
+- [x] **At least five content creators are displayed on the homepage of the app**
 - [x] **Each content creator item includes their name, a link to their channel/page, and a short description of their content**
 - [x] **API calls use the async/await design pattern via Axios or fetch()**
 - [x] **Clicking on a content creator item takes the user to their details page, which includes their name, url, and description**
@@ -35,7 +35,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-![Walkthrough](assets/AnimationFinal.gif)
+![Walkthrough](assets/Animation.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ScreenToGif
