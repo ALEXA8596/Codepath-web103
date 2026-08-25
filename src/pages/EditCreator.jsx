@@ -52,6 +52,8 @@ export default function EditCreator() {
     if (creator && name !== creator.name) {
       supabase.from("creators").delete().eq("name", creator.name);
     }
+
+    window.location.href = "/view/" + name;
   }
 
   async function submitDelete(e) {
